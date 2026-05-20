@@ -71,8 +71,9 @@ export default function Slide7() {
           {/* Contact */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             <p className="label-caps" style={{ marginBottom: 4 }}>Connect</p>
-            <p className="subhead" style={{ fontSize: 20 }}>dr.piyushmalik@redcliffelabs.com</p>
-            <p style={{ color: 'var(--teal)', fontFamily: 'var(--font-head)', fontWeight: 600, fontSize: 20 }}>aiagentmindset.com</p>
+            <p className="subhead" style={{ fontSize: 20 }}>drmalikpiyush@gmail.com</p>
+            <p className="subhead" style={{ fontSize: 20 }}>+91 98116 96473</p>
+            <p style={{ color: 'var(--teal)', fontFamily: 'var(--font-head)', fontWeight: 600, fontSize: 20 }}>meetdrmalik.com</p>
           </div>
 
           {/* QR + scan prompt */}
