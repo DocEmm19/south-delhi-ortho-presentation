@@ -1,0 +1,137 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #080A0F;
+  --surface: #0F1420;
+  --border: rgba(255,255,255,0.07);
+  --teal: #00D4C8;
+  --teal-dim: rgba(0,212,200,0.1);
+  --amber: #F59E0B;
+  --amber-dim: rgba(245,158,11,0.1);
+  --sky: #38BDF8;
+  --white: #F8FAFC;
+  --muted: #64748B;
+  --muted-bright: #94A3B8;
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html, body, #root {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  font-family: var(--font-body);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+.deck-root { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+
+.deck-stage {
+  position: relative;
+  width: 1920px; height: 1080px;
+  transform-origin: center center;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute; inset: 0;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  padding: 80px 110px;
+}
+
+/* dot grid */
+.dot-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.055) 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+}
+
+/* radial glow */
+.teal-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 60% at 50% 45%, rgba(0,212,200,0.07) 0%, transparent 68%);
+}
+.amber-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(245,158,11,0.06) 0%, transparent 60%);
+}
+
+/* nav zones */
+.nav-zone { position: fixed; top: 0; bottom: 0; z-index: 15; }
+.nav-zone.prev { left: 0; width: 15%; cursor: w-resize; }
+.nav-zone.next { right: 0; width: 85%; cursor: e-resize; }
+
+/* dot nav */
+.dot-nav {
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 10px; z-index: 20;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--muted); cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+  border: none; padding: 0;
+}
+.dot.active { background: var(--teal); transform: scale(1.4); }
+
+/* slide number */
+.slide-num {
+  position: absolute; bottom: 40px; right: 80px;
+  font-family: var(--font-head); font-size: 17px; color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* typography */
+.display {
+  font-family: var(--font-head); font-weight: 800;
+  line-height: 1.04; letter-spacing: -0.025em; color: var(--white);
+}
+.headline {
+  font-family: var(--font-head); font-weight: 700;
+  line-height: 1.1; letter-spacing: -0.02em; color: var(--white);
+}
+.subhead {
+  font-family: var(--font-body); font-weight: 400;
+  line-height: 1.6; color: var(--muted-bright);
+}
+.label-caps {
+  font-family: var(--font-head); font-weight: 600; font-size: 13px;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+}
+.teal { color: var(--teal); }
+.amber { color: var(--amber); }
+.sky { color: var(--sky); }
+.muted { color: var(--muted-bright); }
+
+/* cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 44px 40px;
+}
+.card-teal { border-top: 2px solid var(--teal); }
+.card-amber { border-top: 2px solid var(--amber); }
+
+/* pill */
+.pill {
+  display: inline-flex; align-items: center;
+  padding: 7px 18px; border-radius: 999px;
+  font-family: var(--font-head); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.07em; text-transform: uppercase;
+}
+.pill-teal { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(0,212,200,0.18); }
+.pill-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.22); }
+.pill-sky { background: rgba(56,189,248,0.1); color: var(--sky); border: 1px solid rgba(56,189,248,0.2); }
+
+/* divider */
+.divider { height: 1px; background: var(--border); width: 100%; }
+
+/* tool card hover */
+.tool-card { transition: border-color 0.25s, box-shadow 0.25s; cursor: default; }
+.tool-card:hover {
+  border-color: rgba(0,212,200,0.28);
+  box-shadow: 0 0 40px rgba(0,212,200,0.07);
+}
