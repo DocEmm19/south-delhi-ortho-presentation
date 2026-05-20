@@ -79,16 +79,15 @@ export default function Slide7() {
           {/* QR + scan prompt */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             <div style={{
-              width: 130, height: 130, borderRadius: 12,
-              border: '1px solid var(--border)', background: 'var(--surface)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 8,
+              width: 140, height: 140, borderRadius: 12,
+              border: '1px solid var(--border)', background: '#fff',
+              padding: 8, flexShrink: 0,
             }}>
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--muted-bright)" strokeWidth="1.2">
-                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-                <rect x="3" y="14" width="7" height="7"/>
-                <path d="M14 14h3v3h-3zM17 17h3v3h-3zM14 20h3"/>
-              </svg>
-              <p className="label-caps" style={{ fontSize: 10 }}>WhatsApp</p>
+              <img
+                src="./qr.png"
+                alt="Scan to message Dr. Piyush Malik on WhatsApp"
+                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+              />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               <p className="headline" style={{ fontSize: 20, color: 'var(--white)' }}>Scan to connect</p>
